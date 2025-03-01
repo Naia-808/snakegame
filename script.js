@@ -96,9 +96,6 @@ function update() {
 }
 
 function draw() {
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     // Draw chessboard pattern
     for (let x = 0; x < tileCount; x++) {
         for (let y = 0; y < tileCount; y++) {
@@ -138,6 +135,26 @@ function draw() {
                 segment.x * gridSize + gridSize / 2 + 5,
                 segment.y * gridSize + gridSize / 2 - 5,
                 2,
+                0,
+                Math.PI * 2
+            );
+            ctx.fill();
+            ctx.closePath();
+
+            // Blush (below the eyes)
+            ctx.fillStyle = "#ff6f61"; // Coral color for blush
+            ctx.beginPath();
+            ctx.arc(
+                segment.x * gridSize + gridSize / 2 - 5,
+                segment.y * gridSize + gridSize / 2 + 5, // Move blush below the eyes
+                3,
+                0,
+                Math.PI * 2
+            );
+            ctx.arc(
+                segment.x * gridSize + gridSize / 2 + 5,
+                segment.y * gridSize + gridSize / 2 + 5, // Move blush below the eyes
+                3,
                 0,
                 Math.PI * 2
             );
